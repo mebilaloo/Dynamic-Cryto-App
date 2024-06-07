@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px;
+  background-color: #333;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar ul li {
+  margin-left: 1rem; /* Reduce margin for smaller screens */
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  font-size: 20px;
+  color: inherit;
+}
+
+.year-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.year-item {
+  display: inline-block;
+  margin-right: 10px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.header {
+  text-align: center;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .navbar ul li {
+    margin: 0.5rem 0;
+  }
+}

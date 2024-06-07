@@ -1,0 +1,22 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #8ec5fc;
+  /* background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%); */
+  background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+  padding: 10px;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+.navbar ul li a {
+  margin-left: 10rem;
+  text-decoration: none;
+  font-size: 20PX;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}

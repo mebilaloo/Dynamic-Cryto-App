@@ -1,0 +1,32 @@
+.coin-data-container {
+    margin: 20px;
+  }
+  .coin-data-heading {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .coin-table {
+    width: 100%;
+    /* border-collapse: collapse; */
+  }
+  
+  .coin-table th, .coin-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .coin-table th {
+    background-color: #020d16;
+    text-align: left;
+  }
+  
+  .coin-image {
+    height: 80px;
+  }
+  
+  .total-score {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+   

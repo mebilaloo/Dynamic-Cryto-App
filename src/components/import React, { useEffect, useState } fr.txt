@@ -1,0 +1,55 @@
+    import React, { useEffect, useState } from "react";
+    import { Baseurl } from "./BaseUrl";
+    import Loader from "./Loader";
+    import axios from "axios";
+    import Header from "./Header";
+    import { Link, useParams } from "react-router-dom";
+    import "./CoinsDetail.css";
+    import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
+    import {IoPulseOutline} from "react-icons/io5"
+    const CoinsDetail = () => {
+    const [loading, setLoading] = useState(true);
+    const [coin, setCoin] = useState([]);
+    const { id } = useParams();
+    const profit = coin.market_data?.price_change_percentage_24h > 0;
+    useEffect(() => {
+        const fetchData = async () => {
+        try {
+            const response = await axios.get(`${Baseurl}/coins/${id}`);
+            setLoading(false);
+            console.log(response.data);
+            setCoin(response.data);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+        };
+        fetchData();
+    }, []);
+    return (
+        <div>
+        {loading ? (
+            <Loader />
+        ) : (
+            <>
+            <div className="coin-detail">
+                <div className="coin-info">
+                <div className="time">{coin.last_updated}</div>
+                <div className="coin-image">
+                    <img height={"150px"} src={coin.image.large} alt="image" />
+                </div>
+                <div className="coin-name">{coin.name}</div>
+                <div className="coin-price">{coin.market_data.current_price['pkr']}</div>
+                <div className="coin-profit">{profit ? <BiSolidUpArrow color="green"/> :<BiSolidDownArrow color="red"/>}
+                {coin.market_data.price_change_percentage_24h} %</div>
+                <div className="market-rank">
+                {<IoPulseOutline color="orange"/>} #{coin.market_cap_rank}</div>
+                <div className="coin-desc"><p>{coin.description['en'].split('.')[3]}</p></div>
+                </div>
+            </div>  
+            </>
+        )}
+        </div>
+    );
+    };
+
+    export default CoinsDetail;
